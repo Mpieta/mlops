@@ -11,10 +11,8 @@ def export_envs(environment: str = "dev") -> None:
 
 
 def export_secret(path: str) -> None:
-    print(path)
     with open(path, "r") as f:
         secrets = yaml.safe_load(f)
-        print(secrets)
         os.environ["KEY"] = secrets["KEY"]
 
 
