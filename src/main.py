@@ -6,7 +6,7 @@ from settings import Settings
 
 
 def export_envs(environment: str = "dev") -> None:
-    env_file = f".env.{environment}"
+    env_file = os.path.join("config", f".env.{environment}")
     load_dotenv(dotenv_path=env_file)
 
 
@@ -15,7 +15,7 @@ def export_secret(path: str) -> None:
     with open(path, "r") as f:
         secrets = yaml.safe_load(f)
         print(secrets)
-        os.environ["key"] = secrets["key"]
+        os.environ["KEY"] = secrets["KEY"]
 
 
 if __name__ == "__main__":
